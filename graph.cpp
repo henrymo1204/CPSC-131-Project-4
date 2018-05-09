@@ -7,7 +7,7 @@
 //
 
 #include "graph.h"
-
+#include<list>
 // TO BE COMPLETED WITH IMPLEMENTATIONS OF GRAPH MEMBER FUNCTIONS
 Graph::Graph() // default constructor
 {
