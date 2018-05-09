@@ -12,6 +12,7 @@
 #pragma once
 
 #include <string>
+#include<list>
 using namespace std;
 
 class Graph {
@@ -34,6 +35,11 @@ class Graph {
 
  private:
   // member variables and helper functions (if needed)
+ int countE;
+	 int countN;
+		 float newbudget;
+		 int newnode;
+		 list<int>* adj;
 };
 
 
