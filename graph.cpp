@@ -20,8 +20,8 @@ Graph::Graph(int rno, float rbudget) // constructor with two arguments represent
 	
 	newbudget = rbudget;
 
-		countN = rno;
-		adj = new list<int>[countN];
+		this->countN = rno;
+		adj = new list<int>[countE];
 
 
 
@@ -38,7 +38,7 @@ void Graph::addEdge(int node1, int node2)
 }
 void Graph:: setValue(int node, float rval) // sets a value for a node
 {             
-		
+	
 }
 void Graph:: setBudget(float rbu) // sets the initial budget
 {
@@ -78,4 +78,3 @@ int Graph:: bestStartVertex()
 {
 	return 0;
 }
-
