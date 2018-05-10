@@ -33,7 +33,7 @@ void Graph::addEdge(int node1, int node2)
 
 		adj[node1].push_back(node2);
 		adj[node2].push_back(node1);
-		countE++;
+		countN++;
 	
 }
 void Graph:: setValue(int node, float rval) // sets a value for a node
@@ -50,7 +50,11 @@ int Graph:: getNSize() // return number of nodes
 }
 int Graph::getESize() // return number of edges
 {
-	return countE;
+	int sum = 0;
+	for (int i = 0; i < countE; i++)
+		sum += adj[i].size();
+
+	return sum / 2;
 }
 float Graph:: getBudget() // return current budget
 {
