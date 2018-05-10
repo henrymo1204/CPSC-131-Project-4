@@ -20,7 +20,7 @@ Graph::Graph(int rno, float rbudget) // constructor with two arguments represent
 	
 	newbudget = rbudget;
 
-		this->countE = rno;
+		this->countN = rno;
 		adj = new list<int>[countE];
 
 
@@ -33,7 +33,7 @@ void Graph::addEdge(int node1, int node2)
 
 		adj[node1].push_back(node2);
 		adj[node2].push_back(node1);
-
+		countN++；
 	
 }
 void Graph:: setValue(int node, float rval) // sets a value for a node
@@ -46,18 +46,11 @@ void Graph:: setBudget(float rbu) // sets the initial budget
 }
 int Graph:: getNSize() // return number of nodes
 {
-	int sum = 0;
-	for (int i = 0; i < countN; i++)
-		sum += adj[i].size();
-	return sum;
+	reutnr countN;
 }
 int Graph::getESize() // return number of edges
 {
-	int sum = 0;
-	for (int i = 0; i < countE; i++)
-		sum += adj[i].size();
-
-	return sum / 2;
+	return countE;
 }
 float Graph:: getBudget() // return current budget
 {
