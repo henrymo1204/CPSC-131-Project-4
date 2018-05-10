@@ -39,7 +39,7 @@ class Graph {
 	 int countN;
 		 float newbudget;
 		 int newnode;
-		 list<int>* adj;
+		 list<float>* adj;
 };
 
 
