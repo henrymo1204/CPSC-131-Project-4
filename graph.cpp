@@ -109,13 +109,9 @@ void Graph:: readData(string fileName) // reads data from a specified file
 		Jsum++;
 	}
 	int v, e;
-	//int c1[sTotal - nodes];
-	//int c2[sTotal - nodes];
-	int a = 1;
 	while (read >> v >> e)
 	{
 		addEdge(v, e);
-		a++;
 	}
 	read.close();
 
