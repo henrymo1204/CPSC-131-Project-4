@@ -38,7 +38,7 @@ class Graph {
 	 	int countNodes;
 	 	float amount;
 	 	float *load;
-	 	int **array;
+	 	float **array;
 	 	int *stack;
 	 	int top;
 		int edge = 0;
