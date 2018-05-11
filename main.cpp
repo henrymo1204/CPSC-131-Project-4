@@ -99,7 +99,7 @@ int main() {
   testAnswer("testGraph03.DFS(0)", testGraph03.DFS(0), 8);
   // test the bestStartVertex function
   testAnswer("testGraph03.bestStartVertex()", testGraph03.bestStartVertex(), 37);
-
+  cout <<  testGraph03.DFS(37);
   //system("pause");
   return 0;
 }
