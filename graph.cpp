@@ -114,7 +114,7 @@ void Graph:: readData(string fileName) // reads data from a specified file
 		myFile.close();
 	}
 	else{
-		throw invalid_argument("Could not open the file" + fileName);
+		throw "Could not open the file" + fileName;
 	}
 }
 int Graph:: DFS(int startNode) //return the number of nodes visited using BFS starting at startNode and accumulating values at each node, as long as the budget remains positive
