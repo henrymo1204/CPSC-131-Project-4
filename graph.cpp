@@ -49,10 +49,9 @@ Graph::Graph(int rno, float rbudget) // constructor with two arguments represent
 void Graph::addEdge(int node1, int node2)
 // adds an edge between two nodes in the graph node1 and node2
 {
-	if (node1 < countNodes || node2 < countNodes){
-		array[node1][node2] = 1;
-		edge++;
-	}		
+	array[node1][node2] = 1;
+	array[node2][node1] = 1;
+	edge++;	
 }
 
 void Graph:: setValue(int node, float rval) // sets a value for a node
@@ -86,19 +85,71 @@ float Graph:: getValue(int node) // returns the value of the node
 }
 void Graph:: readData(string fileName) // reads data from a specified file
 {
-	ifstream read(fileName);
-        read >> countNodes;
-        read >> amount;
-	Graph(countNodes, amount);
-	for(int j=0;j<countNodes;j++){
-		read >> load[j];
-	}
-    	int n,m;
-    	while(read>>n>>m){
-        	addEdge(n,m);
-    	}
+	ifstream read("smallgraph.txt");
 
-    	read.close();
+    int lines=1;//number of lines
+
+    for(int i=0;i<=lines;i++)
+
+    {
+
+        if(i==0)
+
+        {
+
+            read>>nodes;
+
+        }
+
+        
+
+        if(i==1)
+
+        {
+
+            read>>budget;
+
+        }
+
+        
+
+        
+
+    }
+
+    for(int i=2;i<nodes+2;i++)
+
+    {
+
+        read>>weight[i-2];
+
+    }
+
+    string s;
+
+    int sTotal=1;
+
+    while(!read.eof()) {
+
+        getline(read, s);
+
+        sTotal ++;
+
+    }
+
+    int n,m;
+
+    int i=1;
+
+    while(read>>n>>m){
+
+        addEdge(n,m);
+
+        i++;
+
+    }
+
+    read.close();
 
 }
 int Graph:: DFS(int startNode) //return the number of nodes visited using BFS starting at startNode and accumulating values at each node, as long as the budget remains positive
