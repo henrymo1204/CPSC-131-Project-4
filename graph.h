@@ -37,7 +37,7 @@ class Graph {
   	// member variables and helper functions (if needed)
 	 	int countNodes;
 	 	float amount;
-	 	int *load;
+	 	float *load;
 	 	int **array;
 	 	int *stack;
 	 	int top;
