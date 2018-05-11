@@ -84,7 +84,7 @@ float Graph:: getValue(int node) // returns the value of the node
 }
 void Graph:: readData(string fileName) // reads data from a specified file
 {
-	ifstream read("smallgraph.txt");
+	ifstream read(fileName);
 	int path = 1;
 	for (int a = 0; a <= path; a++)
 	{
