@@ -23,7 +23,7 @@ Graph::Graph(int rno, float rbudget) // constructor with two arguments represent
 	array = new int *[rno];
 	for (int a = 0; a < rno; a++)
 	{
-		array[a] = new int[rno];
+		array[a] = new float[rno];
 	}
 	load = new int[rno];
 	amount = rbudget;
@@ -87,15 +87,15 @@ void Graph:: readData(string fileName) // reads data from a specified file
 	int nodes;
 	int money;
 	ifstream read(fileName);
-	read << nodes;
-	read << money;
+	read >> nodes;
+	read >> money;
 	Graph(nodes, money);
 	for(int i = 0; i < nodes;i++){
-		read << arr[i];
+		read >> arr[i];
 	}
 	int u;
 	int v;
-	while(read << u << v){
+	while(read >> u >> v){
 		addEdge(u,v);
 	}
 		
