@@ -85,16 +85,8 @@ float Graph:: getValue(int node) // returns the value of the node
 void Graph:: readData(string fileName) // reads data from a specified file
 {
 	ifstream read(fileName);
-    	int lines=1;
-    	for(int i=0;i<=lines;i++){
-        	if(i==0){
-            		read >> countNodes;
-		}
-		else{
-            		read >> amount;
-		}
-
-        }
+        read >> countNodes;
+        read >> amount;
 	Graph(countNodes, amount);
 	for(int j=0;j<countNodes;j++){
 		read >> load[j];
@@ -126,7 +118,7 @@ int Graph:: DFS(int startNode) //return the number of nodes visited using BFS st
 			}
         	}
     	}
-    return n;
+    	return n;
 }
 
 // return the starting node that gives a longest DFS run before running out of budget
