@@ -21,7 +21,7 @@ Graph::Graph(int rno, float rbudget) // constructor with two arguments represent
 	newbudget = rbudget;
 
 		this->countN = rno;
-		adj = new list<int>[countE];
+		adj = new list<float>[countE];
 
 
 
