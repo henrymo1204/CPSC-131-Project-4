@@ -15,30 +15,30 @@
 // TO BE COMPLETED WITH IMPLEMENTATIONS OF GRAPH MEMBER FUNCTIONS
 Graph::Graph() // default constructor
 {
-	weight = new int[nodes];
+	load = new int[countNodes];
 }
 
 Graph::Graph(int rno, float rbudget) // constructor with two arguments representing the number of nodes, initial budget
 {
 	array = new int *[rno];
-	for (int i = 0; i < rno; i++)
+	for (int a = 0; a < rno; a++)
 	{
-		array[i] = new int[rno];
+		array[a] = new int[rno];
 	}
-	weight = new int[rno];
-	budget = rbudget;
-	nodes = rno;
+	load = new int[rno];
+	amount = rbudget;
+	countNodes = rno;
 	int top = 0;
 	string str;
-	for (int i = 0; i <= rno; i++)
+	for (int a = 0; a <= rno; a++)
 	{
-		weight[i] = 0;
+		load[a] = 0;
 	}
-	for (int i = 0; i < rno; i++)
+	for (int a = 0; a < rno; a++)
 	{
-		for (int j = 0; j <= rno; j++)
+		for (int i = 0; i <= rno; i++)
 		{
-			array[i][j] = 0;
+			array[a][i] = 0;
 		}
 	}
 
@@ -47,83 +47,83 @@ Graph::Graph(int rno, float rbudget) // constructor with two arguments represent
 void Graph::addEdge(int node1, int node2)
 // adds an edge between two nodes in the graph node1 and node2
 {
-	if (node1 < nodes || node2 < nodes)
+	if (node1 < countNodes || node2 < countNodes)
 		array[node1][node2] = 1;
 
 			
 }
 void Graph:: setValue(int node, float rval) // sets a value for a node
 {             
-	if (node < nodes)
-		weight[node] = rval;
+	if (node < countNodes)
+		load[node] = rval;
 }
 void Graph:: setBudget(float rbu) // sets the initial budget
 {
-	budget = rbu;
+	amount = rbu;
 }
 int Graph:: getNSize() // return number of nodes
 {
-	return nodes;
+	return countNodes;
 }
 int Graph::getESize() // return number of edges
 {
-	int edge = 0;
-	for (int i = 0; i < nodes; i++)
+	int edges = 0;
+	for (int a = 0; a < countNodes; a++)
 	{
-		for (int j = 0; j <= nodes; j++)
+		for (int i = 0; i <= countNodes; i++)
 		{
-			if (array[i][j] == 0.)
-				edge++;
+			if (array[a][i] == 0.)
+				edges++;
 		}
 	}
-		return edge;
+		return edges;
 }
 float Graph:: getBudget() // return current budget
 {
-	return budget;
+	return amount;
 }
 
 float Graph:: getValue(int node) // returns the value of the node
 {
 	
-	return weight[node];
-	return 0;
+	return load[node];
+	
 	
 }
 void Graph:: readData(string fileName) // reads data from a specified file
 {
 	ifstream read("smallgraph.txt");
-	int lines = 1;
-	for (int i = 0; i <= lines; i++)
+	int path = 1;
+	for (int a = 0; a <= path; a++)
 	{
-		if (i == 0)
+		if (a == 0)
 		{
-			read >> nodes;
+			read >> countNodes;
 		}
-		if (i == 1)
+		if (a == 1)
 		{
-			read >> budget;
+			read >> amount;
 		}
 	}
-	for (int i = 2; i < nodes + 2; i++)
+	for (int n = 2; n < countNodes + 2; n++)
 	{
-		read >> weight[i - 2];
+		read >> load[n - 2];
 	}
-	string s;
-	int sTotal = 1;
+	string j;
+	int Jsum = 1;
 	while (!read.eof())
 	{
-		getline(read, s);
-		sTotal++;
+		getline(read, j);
+		Jsum++;
 	}
-	int n, m;
+	int v, e;
 	//int c1[sTotal - nodes];
 	//int c2[sTotal - nodes];
-	int i = 1;
-	while (read >> n >> m)
+	int a = 1;
+	while (read >> v >> e)
 	{
-		addEdge(n, m);
-		i++;
+		addEdge(v, e);
+		a++;
 	}
 	read.close();
 
@@ -131,54 +131,56 @@ void Graph:: readData(string fileName) // reads data from a specified file
 int Graph:: DFS(int startNode) //return the number of nodes visited using BFS starting at startNode and accumulating values at each node, as long as the budget remains positive
 {
 
-	int n = 1;
-	int v = startNode;
-	int k = 1;
-	for (int j = nodes; j >= 0; j--)
+	int a = 1;
+	int q = startNode;
+	int i = 1;
+	for (int k = countNodes; k >= 0; k--)
 	{
-		if (array[v][j] != 0)
+		if (array[q][k] != 0)
 		{
 			//    stk[top]=j;
-			if (budget>0)
+			if (amount>0)
 			{
-				budget = budget - weight[v];
-				n++;
-				v = j;
+				amount = amount - load[q];
+				a++;
+				q = k;
 			}
 		}
 	}
-	return n;
+	return a;
 }
 
 // return the starting node that gives a longest DFS run before running out of budget
 // if there are multiple nodes with the same DFS run length, return the smallest node
 int Graph:: bestStartVertex()
 {
-	int n = 1;
-	int lastnode = 2;
-	int nod = 0;
-	int k = 1;
-	for (int v = 0; v<nodes; v++)
+	int endNode = 2;
+	int a = 1;
+	int b = 1;
+	int node = 0;
+	
+	for (int i = 0; i<countNodes; i++)
 	{
-		for (int j = nodes; j >= 0; j--)
+		for (int n = countNodes; n >= 0; n--)
 		{
-			if (array[v][j] != 0)
+			if (array[i][n] != 0)
 			{
 				//stk[top]=j;
-				if (budget>0)
+				if (amount>0)
 				{
-					budget = budget - weight[v];
-					n++;
-					v = j;
+					amount = amount - load[i];
+					a++;
+					i = n;
 				}
 			}
 		}
-		if (n>lastnode)
+		if (a>endNode)
 		{
-			lastnode = n;
-			nod = v;
+			endNode = a;
+			node = i;
 		}
-		n = 1;
+		a = 1;
 	}
-	return nod;
+	return node;
 }
+
