@@ -41,6 +41,7 @@ class Graph {
 	 	float **array;
 	 	int top;
 		int edge = 0;
+		int n = 0;
 	
 };
 
