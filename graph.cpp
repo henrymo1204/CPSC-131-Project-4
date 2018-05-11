@@ -68,7 +68,7 @@ int Graph:: getNSize() // return number of nodes
 }
 int Graph::getESize() // return number of edges
 {
-		return edges;
+	return edge;
 }
 float Graph:: getBudget() // return current budget
 {
