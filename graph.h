@@ -38,9 +38,9 @@ class Graph {
 	 	int countNodes;
 	 	float amount;
 	 	float *load;
-	 	float **array;
+	 	int**array;
 	 	int top;
-		int edge = 0;
+		int edge;
 		int n = 0;
 		bool *visited;
 		int *length;
