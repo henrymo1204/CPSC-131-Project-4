@@ -138,18 +138,14 @@ int Graph:: DFS(int startNode) //return the number of nodes visited using BFS st
 // if there are multiple nodes with the same DFS run length, return the smallest node
 int Graph:: bestStartVertex()
 {
-	int length[countNodes];
-	int highest = 0;
-	int longest = 0;
-	int temp = 0;
-	for(int i=0;i< countNodes;i++){
-		length[i] = DFS(i);
-	}
-	for(int i =0;i< countNodes;i++){
-		if(length[i] > highest){
-			highest = length[i];
-			temp = i;
+	int longest = DFS(0);
+	int n = 0;
+	for(int i = 1;i<=countNodes;i++){
+		if(DFS(i) > longest){
+			longest = DFS(i);
+			n = i;
 		}
 	}
-	return temp;
+	return n;
+			
 }
