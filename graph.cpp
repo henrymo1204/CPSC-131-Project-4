@@ -108,8 +108,9 @@ int Graph:: DFS(int startNode) //return the number of nodes visited using BFS st
 		amount = amount - load[startNodes];
 		n++;
 		for(int i = 0; i < countNodes; i++){
-		if(array[startNodes][i] == 1){
-			DFS(i);
+			if(array[startNodes][i] == 1){
+				DFS(i);
+			}
 		}
 	}
 	else{
