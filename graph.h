@@ -39,7 +39,6 @@ class Graph {
 	 	float amount;
 	 	float *load;
 	 	float **array;
-	 	int *stack;
 	 	int top;
 		int edge = 0;
 	
