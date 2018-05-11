@@ -35,11 +35,11 @@ class Graph {
 
  private:
   // member variables and helper functions (if needed)
+	 int countNodes;
+	 float amount;
+	 int *load;
 	 int **array;
-	 int *weight;
-	 float budget;
-	 int nodes;
-	 int *stk;
+	 int *stack;
 	 int top;
 };
 
