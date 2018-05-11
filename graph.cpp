@@ -41,12 +41,10 @@ Graph::Graph(int rno, float rbudget) // constructor with two arguments represent
 			array[a][i] = 0;
 		}
 	}
-	bool visited = new bool[countNodes];
-	for(int i = 0; i < countNodes; i++){
+	visited = new bool[countNodes];
+	for(int i= 0; i < countNodes;i++){
 		visited[i] = false;
 	}
-
-
 }
 void Graph::addEdge(int node1, int node2)
 // adds an edge between two nodes in the graph node1 and node2
