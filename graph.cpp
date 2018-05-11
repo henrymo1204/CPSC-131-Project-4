@@ -91,10 +91,11 @@ void Graph:: readData(string fileName) // reads data from a specified file
             		read >> countNodes;
 		}
 		else{
-            		read >> budget;
+            		read >> amount;
 		}
 
         }
+	Graph(countNodes, amount);
 	for(int j=0;j<countNodes;j++){
 		read >> load[j];
 	}
