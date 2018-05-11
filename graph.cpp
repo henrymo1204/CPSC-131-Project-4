@@ -106,12 +106,16 @@ int Graph:: DFS(int startNode) //return the number of nodes visited using BFS st
 	if(amount >= 0){
 		visited[startNode] = true;
 		amount = amount - load[startNode];
+		n++;
 		for(int i = 0; i < countNodes; i++){
 			if(array[startNode][i] == 1){
-				return 1+DFS(i);
+				if(visited[i] == false){
+					DFS(i);
+				}
 			}
 		}
 	}
+	return n;
 }
 
 // return the starting node that gives a longest DFS run before running out of budget
