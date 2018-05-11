@@ -97,7 +97,7 @@ void Graph:: readData(string fileName) // reads data from a specified file
 
         {
 
-            read>>nodes;
+            read>>countNodes;
 
         }
 
@@ -107,7 +107,7 @@ void Graph:: readData(string fileName) // reads data from a specified file
 
         {
 
-            read>>budget;
+            read>>load;
 
         }
 
@@ -117,11 +117,11 @@ void Graph:: readData(string fileName) // reads data from a specified file
 
     }
 
-    for(int i=2;i<nodes+2;i++)
+    for(int i=2;i<countNodes+2;i++)
 
     {
 
-        read>>weight[i-2];
+        read>>load[i-2];
 
     }
 
