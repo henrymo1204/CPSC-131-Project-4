@@ -28,7 +28,7 @@ class Graph {
   		float getValue(int node) ; // returns the value of the node
   		void readData (string fileName); // reads data from a specified file
   		int DFS(int startNode); //return the number of nodes visited using BFS starting at startNode and accumulating values at each node, as long as the budget remains positive
-		int helpDFS(int startNode);
+
   		// return the starting node that gives a longest DFS run before running out of budget
   		// if there are multiple nodes with the same DFS run length, return the smallest node
   		int bestStartVertex();
