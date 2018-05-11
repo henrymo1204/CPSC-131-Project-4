@@ -127,6 +127,7 @@ int Graph:: DFS(int startNode) //return the number of nodes visited using BFS st
 				if(visited[i] == false){
 					DFS(i);
 					n++;
+					break;
 				}
 			}
 		}
