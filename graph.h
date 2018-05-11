@@ -42,7 +42,7 @@ class Graph {
 	 	int top;
 		int edge = 0;
 		int n = 0;
-	
+		bool *visited;
 };
 
 
