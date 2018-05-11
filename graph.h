@@ -43,7 +43,6 @@ class Graph {
 		int edge;
 		int n = 0;
 		bool *visited;
-		int *length;
 };
 
 
