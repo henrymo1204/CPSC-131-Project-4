@@ -7,7 +7,7 @@
 //
 
 #include "graph.h"
-#include<list>
+#include <list>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -15,7 +15,7 @@
 // TO BE COMPLETED WITH IMPLEMENTATIONS OF GRAPH MEMBER FUNCTIONS
 Graph::Graph() // default constructor
 {
-	load = new int[countNodes];
+	load = new float[countNodes];
 }
 
 Graph::Graph(int rno, float rbudget) // constructor with two arguments representing the number of nodes, initial budget
@@ -84,35 +84,21 @@ float Graph:: getValue(int node) // returns the value of the node
 }
 void Graph:: readData(string fileName) // reads data from a specified file
 {
+	int nodes;
+	int money;
 	ifstream read(fileName);
-	int path = 1;
-	for (int a = 0; a <= path; a++)
-	{
-		if (a == 0)
-		{
-			read >> countNodes;
-		}
-		if (a == 1)
-		{
-			read >> amount;
-		}
+	read << nodes;
+	read << money;
+	Graph(nodes, money);
+	for(int i = 0; i < nodes;i++){
+		read << arr[i];
 	}
-	for (int n = 2; n < countNodes + 2; n++)
-	{
-		read >> load[n - 2];
+	int u;
+	int v;
+	while(read << u << v){
+		addEdge(u,v);
 	}
-	string j;
-	int Jsum = 1;
-	while (!read.eof())
-	{
-		getline(read, j);
-		Jsum++;
-	}
-	int v, e;
-	while (read >> v >> e)
-	{
-		addEdge(v, e);
-	}
+		
 	read.close();
 
 }
