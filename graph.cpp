@@ -112,9 +112,6 @@ int Graph:: DFS(int startNode) //return the number of nodes visited using BFS st
 			}
 		}
 	}
-	else{
-		return 1;
-	}
 }
 
 // return the starting node that gives a longest DFS run before running out of budget
