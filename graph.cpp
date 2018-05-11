@@ -20,7 +20,7 @@ Graph::Graph() // default constructor
 
 Graph::Graph(int rno, float rbudget) // constructor with two arguments representing the number of nodes, initial budget
 {
-	array = new int *[rno];
+	array = new float *[rno];
 	for (int a = 0; a < rno; a++)
 	{
 		array[a] = new float[rno];
@@ -91,7 +91,7 @@ void Graph:: readData(string fileName) // reads data from a specified file
 	read >> money;
 	Graph(nodes, money);
 	for(int i = 0; i < nodes;i++){
-		read >> arr[i];
+		read >> load[i];
 	}
 	int u;
 	int v;
