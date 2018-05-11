@@ -85,72 +85,19 @@ float Graph:: getValue(int node) // returns the value of the node
 }
 void Graph:: readData(string fileName) // reads data from a specified file
 {
-	ifstream read("smallgraph.txt");
+	ifstream read(fileName);
+        read >> countNodes;
+        read >> amount;
+	Graph(countNodes, amount);
+	for(int j=0;j<countNodes;j++){
+		read >> load[j];
+	}
+    	int n,m;
+    	while(read>>n>>m){
+        	addEdge(n,m);
+    	}
 
-    int lines=1;//number of lines
-
-    for(int i=0;i<=lines;i++)
-
-    {
-
-        if(i==0)
-
-        {
-
-            read>>countNodes;
-
-        }
-
-        
-
-        if(i==1)
-
-        {
-
-            read>>load;
-
-        }
-
-        
-
-        
-
-    }
-
-    for(int i=2;i<countNodes+2;i++)
-
-    {
-
-        read>>load[i-2];
-
-    }
-
-    string s;
-
-    int sTotal=1;
-
-    while(!read.eof()) {
-
-        getline(read, s);
-
-        sTotal ++;
-
-    }
-
-    int n,m;
-
-    int i=1;
-
-    while(read>>n>>m){
-
-        addEdge(n,m);
-
-        i++;
-
-    }
-
-    read.close();
-
+    	read.close();
 }
 int Graph:: DFS(int startNode) //return the number of nodes visited using BFS starting at startNode and accumulating values at each node, as long as the budget remains positive
 {
