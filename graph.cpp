@@ -133,6 +133,6 @@ int Graph:: bestStartVertex()
 			highest = length[longest];
 		}
 	}
-	return highest;
+	return longest;
 }
 
