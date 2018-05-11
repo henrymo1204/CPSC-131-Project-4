@@ -14,16 +14,28 @@
 
 // TO BE COMPLETED WITH IMPLEMENTATIONS OF GRAPH MEMBER FUNCTIONS
 Graph::Graph() // default constructor
-{
+{   
+	edge = 0;
+	countNodes = 100;
 	load = new float[countNodes];
+	visited = new bool[countNodes];
+	for (int i = 0; i < countNodes; i++) {
+		visited[i] = false;
+	}
+	array = new int*[countNodes];
+	for (int a = 0; a < countNodes; a++)
+	{
+		array[a] = new int[countNodes];
+	}
+
 }
 
 Graph::Graph(int rno, float rbudget) // constructor with two arguments representing the number of nodes, initial budget
 {
-	array = new float *[rno];
+	array = new int*[rno];
 	for (int a = 0; a < rno; a++)
 	{
-		array[a] = new float[rno];
+		array[a] = new int[rno];
 	}
 	load = new float[rno];
 	amount = rbudget;
@@ -85,19 +97,24 @@ float Graph:: getValue(int node) // returns the value of the node
 }
 void Graph:: readData(string fileName) // reads data from a specified file
 {
-	ifstream read(fileName);
-        read >> countNodes;
-        read >> amount;
-	Graph(countNodes, amount);
-	for(int j=0;j<countNodes;j++){
-		read >> load[j];
-	}
-    	int n,m;
-    	while(read>>n>>m){
-        	addEdge(n,m);
-    	}
+	ifstream myFile(fileName);
+	if (myFile.is_open()) {
+		myFile >> countNodes;
+		myFile >> amount;
+		//Graph(countNodes, amount);
+		cout << "Read from file countNodes=" << countNodes << endl;
+		for (int j = 0; j < countNodes; j++) {
+			myFile >> load[j];
+		}
+		int n, m;
+		while (myFile >> n >> m) {
+			addEdge(n, m);
+		}
 
-    	read.close();
+		myFile.close();
+	}
+	else
+		throw invalid_argument("Could not open the file" + fileName);
 }
 int Graph:: DFS(int startNode) //return the number of nodes visited using BFS starting at startNode and accumulating values at each node, as long as the budget remains positive
 {
@@ -135,4 +152,3 @@ int Graph:: bestStartVertex()
 	}
 	return temp;
 }
-
