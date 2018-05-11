@@ -18,10 +18,10 @@ Graph::Graph() // default constructor
 Graph::Graph(int rno, float rbudget) // constructor with two arguments representing the number of nodes, initial budget
 {
 	
-		newbudget = rbudget;
+	newbudget = rbudget;
 
-		countN = rno;
-		adj = new list<float>[countN];
+		this->countN = rno;
+		adj = new list<int>[countE];
 
 
 
@@ -33,11 +33,12 @@ void Graph::addEdge(int node1, int node2)
 
 		adj[node1].push_back(node2);
 		adj[node2].push_back(node1);
+		countN++;
 	
 }
 void Graph:: setValue(int node, float rval) // sets a value for a node
 {             
-
+	
 }
 void Graph:: setBudget(float rbu) // sets the initial budget
 {
@@ -49,7 +50,11 @@ int Graph:: getNSize() // return number of nodes
 }
 int Graph::getESize() // return number of edges
 {
-	return countE;
+	int sum = 0;
+	for (int i = 0; i < countE; i++)
+		sum += adj[i].size();
+
+	return sum / 2;
 }
 float Graph:: getBudget() // return current budget
 {
@@ -58,6 +63,8 @@ float Graph:: getBudget() // return current budget
 
 float Graph:: getValue(int node) // returns the value of the node
 {
+	newnode = node;
+	return newnode;
 	
 }
 void Graph:: readData(string fileName) // reads data from a specified file
