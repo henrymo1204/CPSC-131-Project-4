@@ -119,56 +119,13 @@ void Graph:: readData(string fileName) // reads data from a specified file
 int Graph:: DFS(int startNode) //return the number of nodes visited using BFS starting at startNode and accumulating values at each node, as long as the budget remains positive
 {
 
-	int a = 1;
-	int q = startNode;
-	int i = 1;
-	for (int k = countNodes; k >= 0; k--)
-	{
-		if (array[q][k] != 0)
-		{
-			//    stk[top]=j;
-			if (amount>0)
-			{
-				amount = amount - load[q];
-				a++;
-				q = k;
-			}
-		}
-	}
-	return a;
+	return 0;
 }
 
 // return the starting node that gives a longest DFS run before running out of budget
 // if there are multiple nodes with the same DFS run length, return the smallest node
 int Graph:: bestStartVertex()
 {
-	int endNode = 2;
-	int a = 1;
-	int b = 1;
-	int node = 0;
-	
-	for (int i = 0; i<countNodes; i++)
-	{
-		for (int n = countNodes; n >= 0; n--)
-		{
-			if (array[i][n] != 0)
-			{
-				//stk[top]=j;
-				if (amount>0)
-				{
-					amount = amount - load[i];
-					a++;
-					i = n;
-				}
-			}
-		}
-		if (a>endNode)
-		{
-			endNode = a;
-			node = i;
-		}
-		a = 1;
-	}
-	return node;
+	return 0;
 }
 
