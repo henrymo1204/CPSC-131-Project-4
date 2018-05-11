@@ -140,7 +140,7 @@ int Graph:: bestStartVertex(){
 	int longest = 0;
 	int n = 0;
 	for(int i = 0;i<countNodes;i++){
-		if(DFS(i) >= longest){
+		if(DFS(i) > longest){
 			longest = DFS(i);
 			n = i;
 		}
