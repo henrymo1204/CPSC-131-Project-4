@@ -104,11 +104,11 @@ void Graph:: readData(string fileName) // reads data from a specified file
 int Graph:: DFS(int startNode) //return the number of nodes visited using BFS starting at startNode and accumulating values at each node, as long as the budget remains positive
 {
 	if(amount >= 0){
-		visited[startNode] = true;
-		amount = amount - load[startNode];
+		visited[startNodes] = true;
+		amount = amount - load[startNodes];
 		n++;
-		for(int i = 0; i < countNode; i++){
-		if(array[startNode][i] == 1){
+		for(int i = 0; i < countNodes; i++){
+		if(array[startNodes][i] == 1){
 			DFS(i);
 		}
 	}
