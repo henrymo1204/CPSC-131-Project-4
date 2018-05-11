@@ -125,14 +125,16 @@ int Graph:: bestStartVertex()
 	length = new int[countNodes];
 	int highest = 0;
 	int longest = 0;
+	int temp = 0;
 	for(int i=0;i< countNodes;i++){
 		length[i] = DFS(i);
 	}
 	for(longest =0;longest< countNodes;longest++){
 		if(length[longest] > highest){
 			highest = length[longest];
+			temp = longest;
 		}
 	}
-	return longest;
+	return temp;
 }
 
