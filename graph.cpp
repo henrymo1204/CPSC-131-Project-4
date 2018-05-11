@@ -47,11 +47,12 @@ Graph::Graph(int rno, float rbudget) // constructor with two arguments represent
 void Graph::addEdge(int node1, int node2)
 // adds an edge between two nodes in the graph node1 and node2
 {
-	if (node1 < countNodes || node2 < countNodes)
+	if (node1 < countNodes || node2 < countNodes){
 		array[node1][node2] = 1;
-
-			
+		edge++;
+	}		
 }
+
 void Graph:: setValue(int node, float rval) // sets a value for a node
 {             
 	if (node < countNodes)
@@ -67,15 +68,6 @@ int Graph:: getNSize() // return number of nodes
 }
 int Graph::getESize() // return number of edges
 {
-	int edges = 0;
-	for (int a = 0; a < countNodes; a++)
-	{
-		for (int i = 0; i <= countNodes; i++)
-		{
-			if (array[a][i] == 0.)
-				edges++;
-		}
-	}
 		return edges;
 }
 float Graph:: getBudget() // return current budget
