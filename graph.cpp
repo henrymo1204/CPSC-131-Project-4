@@ -25,7 +25,7 @@ Graph::Graph(int rno, float rbudget) // constructor with two arguments represent
 	{
 		array[a] = new float[rno];
 	}
-	load = new int[rno];
+	load = new float[rno];
 	amount = rbudget;
 	countNodes = rno;
 	int top = 0;
