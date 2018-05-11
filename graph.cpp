@@ -41,6 +41,10 @@ Graph::Graph(int rno, float rbudget) // constructor with two arguments represent
 			array[a][i] = 0;
 		}
 	}
+	bool visited = new bool[countNodes];
+	for(int i = 0; i < countNodes; i++){
+		visited[i] = false;
+	}
 
 
 }
@@ -101,24 +105,17 @@ void Graph:: readData(string fileName) // reads data from a specified file
 }
 int Graph:: DFS(int startNode) //return the number of nodes visited using BFS starting at startNode and accumulating values at each node, as long as the budget remains positive
 {
- 	int n=1;
-
-   	int v=startNode;
-
-    	int k=1;
-
-    
-
-    	for(int j=countNodes;j>=0;j--){
-		if(array[v][j]!=0){
-            		if(amount>0){
-				amount=amount-load[v];
-				n++;
-				v=j;
-			}
-        	}
-    	}
-    	return n;
+	if(amount >= 0){
+		visited[startNode] = true;
+		amount = amount - load[startNode];
+		n++;
+		for(int i = 0; i < countNode; i++){
+		if(array[startNode][i] == 1){
+			DFS(i);
+		}
+	}
+	else{
+		return n;
 }
 
 // return the starting node that gives a longest DFS run before running out of budget
