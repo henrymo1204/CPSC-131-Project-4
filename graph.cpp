@@ -145,7 +145,7 @@ int Graph:: bestStartVertex()
 	for(int i=0;i< countNodes;i++){
 		length[i] = DFS(i);
 	}
-	for(int i =0;i< length.length;i++){
+	for(int i =0;i< countNodes;i++){
 		if(length[i] > highest){
 			highest = length[i];
 			temp = i;
