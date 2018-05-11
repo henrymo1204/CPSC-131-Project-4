@@ -6,8 +6,8 @@
 //  Copyright © 2018 Bein, Doina. All rights reserved.
 //
 
-#ifndef Graph_h
-#define Graph_h
+#ifndef graph_h
+#define graph_h
 
 #pragma once
 
@@ -35,11 +35,12 @@ class Graph {
 
  private:
   // member variables and helper functions (if needed)
- int countE;
-	 int countN;
-		 float newbudget;
-		 int newnode;
-		 list<float>* adj;
+	 int **array;
+	 int *weight;
+	 float budget;
+	 int nodes;
+	 int *stk;
+	 int top;
 };
 
 
